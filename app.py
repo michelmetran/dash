@@ -9,7 +9,7 @@ app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 server = app.server
 
 app.layout = html.Div(children=[
-    html.H1(children='Hello Dash'),
+    html.H1(children='Hello Cantareira!!!'),
 
     html.Div(children='Dash: A web application framework for Python.'),
 
