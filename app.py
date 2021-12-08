@@ -10,7 +10,6 @@ server = app.server
 
 app.layout = html.Div(children=[
     html.H1(children='Hello Cantareira!!!'),
-    
 
     html.Div(children='Dash: A web application framework for Python.'),
 
@@ -29,5 +28,5 @@ app.layout = html.Div(children=[
 ])
 
 if __name__ == '__main__':
-    #app.run_server(debug=True)
+    # app.run_server(debug=True)
     app.run_server()
