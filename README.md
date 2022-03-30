@@ -23,3 +23,16 @@ server = app.server
 ### Referências
 
 - [How to deploy a simple Python app using nothing but Github and Heroku](https://medium.com/@austinlasseter/how-to-deploy-a-simple-plotly-dash-app-to-heroku-622a2216eb73)
+
+
+# Dash
+
+<br>
+
+
+
+
+```bash
+lsof -i @localhost:8050
+kill -9 <<PID>>
+```
