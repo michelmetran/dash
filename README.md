@@ -30,8 +30,6 @@ lsof -i @localhost:8050
 kill -9 <<PID>>
 ```
 
-
-
 <br>
 
 ----

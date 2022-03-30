@@ -2,16 +2,14 @@ import os
 from dash import Dash, dcc, html, Input, Output
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
-
 app = Dash(__name__, external_stylesheets=external_stylesheets)
-
 server = app.server
 
 app.layout = html.Div(children=[
-    #
+    # Adiciona Título
     html.H1(children='Título 1'),
 
-    #
+    # Adiciona Título
     html.H2('Título 2'),
 
     # Uma div aleatória
@@ -57,5 +55,6 @@ def display_value(value):
 
 
 if __name__ == '__main__':
-    # app.run_server(debug=True)
-    app.run_server()
+    app.run_server(
+        debug=True
+    )
