@@ -49,8 +49,8 @@ app.layout = html.Div(children=[
 
 
 @app.callback(
-    [Input('dropdown', 'value')],
     Output('display-value', 'children'),
+    [Input('dropdown', 'value')],
 )
 def display_value(value):
     return f'You have selected {value}'
