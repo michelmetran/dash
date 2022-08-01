@@ -6,3 +6,7 @@ plotly>=4.8.0
 
 dash>=2.0.0
 dash-bootstrap-components>=1.2.0
+
+geopandas~=0.11.1
+python-dotenv~=0.20.0
+numpy~=1.23.1

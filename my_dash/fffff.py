@@ -4,9 +4,9 @@ layout using the Navbar component and the supporting Nav, NavItem, NavLink,
 NavbarBrand, and NavbarToggler components.
 Requires dash-bootstrap-components 0.3.0 or later
 """
+import os
+from dash import Dash, dcc, html, Input, Output
 
-
-import dash
 import dash_bootstrap_components as dbc
 from dash import Dash
 from dash import Input, Output, State, html
@@ -104,7 +104,7 @@ search_bar = dbc.Row(
             width="auto",
         ),
     ],
-    no_gutters=True,
+    #no_gutters=True,
     className="ml-auto flex-nowrap mt-3 mt-md-0",
     align="center",
 )
@@ -119,7 +119,7 @@ navbar = dbc.Navbar(
                     dbc.Col(dbc.NavbarBrand('Navbar', className='ml-2')),
                 ],
                 align="center",
-                no_gutters=True,
+                #no_gutters=True,
             ),
             href="https://plot.ly",
         ),

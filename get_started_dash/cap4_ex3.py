@@ -1,13 +1,16 @@
-import dash
-import dash_core_components as dcc
-import dash_html_components as html
-import numpy as np
+
 import pandas as pd
+import numpy as np
+from dash import Dash, html, dcc
 from dash.dependencies import Input, Output
+
+
+
+
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
-app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+app = Dash(__name__, external_stylesheets=external_stylesheets)
 
 # make a sample data frame with 6 columns
 np.random.seed(0)

@@ -4,6 +4,7 @@ dddd
 
 
 from my_dash.app_table_simples import app
+from my_templates.sidebar_multiple.app_template import app
 
 
 if __name__ == '__main__':

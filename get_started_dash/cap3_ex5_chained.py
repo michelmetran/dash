@@ -1,11 +1,15 @@
-import dash
-import dash_core_components as dcc
-import dash_html_components as html
+from dash import Dash, html, dcc
 from dash.dependencies import Input, Output
+
+
+
+
+
+
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
-app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+app = Dash(__name__, external_stylesheets=external_stylesheets)
 
 all_options = {
     'America': ['New York City', 'San Francisco', 'Cincinnati'],
@@ -17,13 +21,9 @@ app.layout = html.Div([
         options=[{'label': k, 'value': k} for k in all_options.keys()],
         value='America'
     ),
-
     html.Hr(),
-
     dcc.RadioItems(id='cities-radio'),
-
     html.Hr(),
-
     html.Div(id='display-selected-values')
 ])
 
@@ -47,9 +47,7 @@ def set_cities_value(available_options):
     [Input('countries-radio', 'value'),
      Input('cities-radio', 'value')])
 def set_display_children(selected_country, selected_city):
-    return u'{} is a city in {}'.format(
-        selected_city, selected_country,
-    )
+    return f'{selected_city} is a city in {selected_country}'
 
 
 if __name__ == '__main__':

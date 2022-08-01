@@ -1,11 +1,8 @@
-import dash
 from dash.dependencies import Input, Output
-from dash import dcc
-from dash import html
-
+from dash import Dash, html, dcc
 import dash_bootstrap_components as dbc
 
-app = dash.Dash(external_stylesheets=[dbc.themes.BOOTSTRAP])
+app = Dash(external_stylesheets=[dbc.themes.BOOTSTRAP])
 
 
 themes_list = [

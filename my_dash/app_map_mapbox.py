@@ -1,9 +1,6 @@
-import pandas as pd
 import geopandas as gpd
 import plotly.express as px
-# import dash_core_components as dcc
-# import dash_html_components as html
-from dash import Dash, dcc, html, Input, Output
+from dash import Dash, dcc, html
 from dotenv import dotenv_values, find_dotenv
 
 # fig.show()
