@@ -5,18 +5,22 @@ import plotly.express as px
 import plotly.graph_objects as go
 
 quakes = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/earthquakes-23k.csv')
-fig = go.Figure(go.Densitymapbox(lat=quakes.Latitude, lon=quakes.Longitude, z=quakes.Magnitude, radius=10))
-fig.update_layout(mapbox_style="stamen-terrain", mapbox_center_lon=180)
-fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
-# fig.show()
-
+fig = go.Figure(
+    go.Densitymapbox(
+        lat=quakes.Latitude,
+        lon=quakes.Longitude,
+        z=quakes.Magnitude,
+        radius=10
+    )
+)
+fig.update_layout(mapbox_style='stamen-terrain', mapbox_center_lon=180)
+fig.update_layout(margin={'r': 0, 't': 0, 'l': 0, 'b': 0})
+fig.show()
 
 app = Dash()
 app.layout = html.Div([
     dcc.Graph(figure=fig)
 ])
-
-app.run_server(debug=True, use_reloader=False)  # Turn off reloader if inside Jupyter
 
 # app = Dash(__name__)
 # df = pd.read_csv('https://plotly.github.io/datasets/country_indicators.csv')
@@ -102,5 +106,9 @@ app.run_server(debug=True, use_reloader=False)  # Turn off reloader if inside Ju
 #     return fig
 
 
-# if __name__ == '__main__':
-#     app.run_server(debug=True, port=8055)
+if __name__ == '__main__':
+    app.run_server(
+        debug=True,
+        port=8055,
+        use_reloader=True  # Turn off reloader if inside Jupyter
+    )

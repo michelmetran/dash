@@ -6,6 +6,7 @@ app = Dash(__name__)
 
 app.layout = html.Div([
     html.Div(children=[
+        #
         html.Label('Dropdown'),
         dcc.Dropdown(['New York City', 'Montréal', 'San Francisco'], 'Montréal'),
 
@@ -42,4 +43,6 @@ app.layout = html.Div([
 ], style={'display': 'flex', 'flex-direction': 'row'})
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server(
+        debug=True
+    )

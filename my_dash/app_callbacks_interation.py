@@ -1,24 +1,15 @@
-# -*- coding: utf-8 -*-
+"""
+
+"""
 from dash import Dash, dcc, html, Input, Output
-
-
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = Dash(__name__, external_stylesheets=external_stylesheets)
-
-
 
 all_options = {
     'America': ['New York City', 'San Francisco', 'Cincinnati'],
     'Canada': [u'Montréal', 'Toronto', 'Ottawa']
 }
-
-
-
-
-
-
-
 
 app.layout = html.Div([
     dcc.RadioItems(
