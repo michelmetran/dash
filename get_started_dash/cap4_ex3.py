@@ -1,12 +1,7 @@
-
 import pandas as pd
 import numpy as np
 from dash import Dash, html, dcc
 from dash.dependencies import Input, Output
-
-
-
-
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
@@ -14,7 +9,7 @@ app = Dash(__name__, external_stylesheets=external_stylesheets)
 
 # make a sample data frame with 6 columns
 np.random.seed(0)
-df = pd.DataFrame({"Col " + str(i+1): np.random.rand(30) for i in range(6)})
+df = pd.DataFrame({"Col " + str(i + 1): np.random.rand(30) for i in range(6)})
 
 app.layout = html.Div([
     html.Div(
@@ -24,15 +19,15 @@ app.layout = html.Div([
     html.Div(
         dcc.Graph(id='g2', config={'displayModeBar': False}),
         className='four columns'
-        ),
+    ),
     html.Div(
         dcc.Graph(id='g3', config={'displayModeBar': False}),
         className='four columns'
     )
 ], className='row')
 
-def get_figure(df, x_col, y_col, selectedpoints, selectedpoints_local):
 
+def get_figure(df, x_col, y_col, selectedpoints, selectedpoints_local):
     if selectedpoints_local and selectedpoints_local['range']:
         ranges = selectedpoints_local['range']
         selection_bounds = {'x0': ranges['x'][0], 'x1': ranges['x'][1],
@@ -56,11 +51,11 @@ def get_figure(df, x_col, y_col, selectedpoints, selectedpoints_local):
             'customdata': df.index,
             'type': 'scatter',
             'mode': 'markers+text',
-            'marker': { 'color': 'rgba(0, 116, 217, 0.7)', 'size': 12 },
+            'marker': {'color': 'rgba(0, 116, 217, 0.7)', 'size': 12},
             'unselected': {
-                'marker': { 'opacity': 0.3 },
+                'marker': {'opacity': 0.3},
                 # make text transparent when not selected
-                'textfont': { 'color': 'rgba(0, 0, 0, 0)' }
+                'textfont': {'color': 'rgba(0, 0, 0, 0)'}
             }
         }],
         'layout': {
@@ -70,11 +65,12 @@ def get_figure(df, x_col, y_col, selectedpoints, selectedpoints_local):
             # Display a rectangle to highlight the previously selected region
             'shapes': [dict({
                 'type': 'rect',
-                'line': { 'width': 1, 'dash': 'dot', 'color': 'darkgrey' }
+                'line': {'width': 1, 'dash': 'dot', 'color': 'darkgrey'}
             }, **selection_bounds
             )]
         }
     }
+
 
 # this callback defines 3 figures
 # as a function of the intersection of their 3 selections
@@ -91,7 +87,8 @@ def callback(selection1, selection2, selection3):
     for selected_data in [selection1, selection2, selection3]:
         if selected_data and selected_data['points']:
             selectedpoints = np.intersect1d(selectedpoints,
-                [p['customdata'] for p in selected_data['points']])
+                                            [p['customdata'] for p in
+                                             selected_data['points']])
 
     return [get_figure(df, "Col 1", "Col 2", selectedpoints, selection1),
             get_figure(df, "Col 3", "Col 4", selectedpoints, selection2),

@@ -1,12 +1,9 @@
-
 import pandas as pd
 from dash import Dash, html, dcc
 
-
-
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
-app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+app = Dash(__name__, external_stylesheets=external_stylesheets)
 
 df = pd.read_csv('https://plotly.github.io/datasets/country_indicators.csv')
 
@@ -18,7 +15,8 @@ app.layout = html.Div([
         html.Div([
             dcc.Dropdown(
                 id='crossfilter-xaxis-column',
-                options=[{'label': i, 'value': i} for i in available_indicators],
+                options=[{'label': i, 'value': i} for i in
+                         available_indicators],
                 value='Fertility rate, total (births per woman)'
             ),
             dcc.RadioItems(
@@ -28,12 +26,13 @@ app.layout = html.Div([
                 labelStyle={'display': 'inline-block'}
             )
         ],
-        style={'width': '49%', 'display': 'inline-block'}),
+            style={'width': '49%', 'display': 'inline-block'}),
 
         html.Div([
             dcc.Dropdown(
                 id='crossfilter-yaxis-column',
-                options=[{'label': i, 'value': i} for i in available_indicators],
+                options=[{'label': i, 'value': i} for i in
+                         available_indicators],
                 value='Life expectancy at birth, total (years)'
             ),
             dcc.RadioItems(
@@ -87,8 +86,10 @@ def update_graph(xaxis_column_name, yaxis_column_name,
         'data': [dict(
             x=dff[dff['Indicator Name'] == xaxis_column_name]['Value'],
             y=dff[dff['Indicator Name'] == yaxis_column_name]['Value'],
-            text=dff[dff['Indicator Name'] == yaxis_column_name]['Country Name'],
-            customdata=dff[dff['Indicator Name'] == yaxis_column_name]['Country Name'],
+            text=dff[dff['Indicator Name'] == yaxis_column_name][
+                'Country Name'],
+            customdata=dff[dff['Indicator Name'] == yaxis_column_name][
+                'Country Name'],
             mode='markers',
             marker={
                 'size': 15,
